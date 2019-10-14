@@ -1,29 +1,57 @@
+<html>
+	<head>
+		<style>
+			.water {
+				background-color: gray;
+			}
 
-<script>
-	function mijnFunctie(){
-		var getal = document.getElementById("eerstegetal").value;
-		var getal2 = document.getElementById("tweedegetal").value;
-		var uitkomst = parseInt(getal) + parseInt(getal2);
-		console.log ("waarde 1: " + getal);
-		console.log ("waarde 2: " +getal2);
-		document.getElementById("eenid").innerHTML = uitkomst;
-		alert(uitkomst);
-		
-	}
+			.boot {
+				background-color: gray;
+			}
+		</style>
 
-</script>
+		<script>
+			var count = 0;
+			var geklikt = [0,0,0,0];
+
+			function schieten(bootofwater, vakje, nummer) {
+				if(geklikt[nummer] == 1){
+					alert("Hier heb je al geschoten");
+					return;
+				}else{
+					geklikt[nummer] = 1;
+				}
+				console.log(geklikt);
+
+				if(bootofwater == 'water'){
+					vakje.style.backgroundColor = "blue";
+					document.getElementById("commentaar").innerHTML = "Plons";
+				}else{
+					vakje.style.backgroundColor = "red";
+					document.getElementById("commentaar").innerHTML = "Raak";
+					if(count == 0) {
+						count++
+					} else {
+						alert("Hij is gezonken");
+					}
+				}
+			}
 
 
-<div>
-<h2>Eerste getal</h2>
-<input type=text id=eerstegetal>
-<h2>Tweede getal</h2>
-<input type=text id=tweedegetal>
+		</script>
+	</head>
 
-<h3 onclick="mijnFunctie()">Klik *hier* voor uitkomst</h3>
-</div>
+	<body>
+		<table border=1>
+			<tr>
+				<td class="water" onclick="schieten('water', this, 0)">test</td>
+				<td class="boot" onclick="schieten('boot', this, 1)">test</td>
+				<td class="boot" onclick="schieten('boot', this, 2)">test</td>
+				<td class="water" onclick="schieten('water', this, 3)">test</td>
+			</tr>
+		</table>
+		<div id=commentaar></div>
 
-<h1 id="eenid">*uitkomst*</h1>
+	</body>
 
-
-
+</html>
