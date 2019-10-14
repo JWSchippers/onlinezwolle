@@ -1,26 +1,17 @@
+
 <script>
 	function mijnFunctie(){
-		alert();
 		var getal = document.getElementById("eerstegetal").value;
 		var getal2 = document.getElementById("tweedegetal").value;
 		var uitkomst = parseInt(getal) + parseInt(getal2);
+		console.log ("waarde 1: " + getal);
+		console.log ("waarde 2: " +getal2);
 		document.getElementById("eenid").innerHTML = uitkomst;
+		alert(uitkomst);
 		
 	}
 
 </script>
-
-<style>
-	h1{
-		background-color:red;
-	}
-	h1#eenid{
-		background-color:blue;
-	}
-
-</style>
-
-
 
 
 <div>
